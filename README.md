@@ -5,6 +5,14 @@ Ever needed to validate the strength of the password a user is trying to set?
 
 Please Note that this Module requires [zxcvbn](https://github.com/dropbox/zxcvbn).
 
+## Install
+
+The easiest way is to install via bower:
+
+    bower install nickel.minStrength
+
+zxcvbn is set as dependency in bower.json, and will be installed automatically when you install via bower.
+
 ## How to use
 
 Load zxcvbn and this Module inside your DOM, set this Module as dependency in your AngularJS-App, and you're ready to go:
