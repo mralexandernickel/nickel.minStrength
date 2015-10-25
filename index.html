@@ -20,7 +20,7 @@
   </head>
   <body>
     <div flex layout="row" layout-align="center center">
-      <md-card flex="40" class="md-padding">
+      <md-card flex="40" class="md-padding" ng-controller="DemoController">
         <h2 class="md-headline">Password Strength Validation</h2>
         <form name="signupForm">
           <md-input-container>
@@ -39,6 +39,10 @@
             </div>
           </md-input-container>
           <div layout="row" layout-align="end center">
+            <md-button class="md-primary"
+                       ng-disabled="signupForm.password.$viewValue.length < 1"
+                       aria-label="Show Info"
+                       ng-click="showInfo(signupForm.password.$viewValue,$event)">Show Info</md-button>
             <md-button class="md-raised md-primary" ng-disabled="!signupForm.$valid" aria-label="Submit">Submit</md-button>
           </div>
         </form>
@@ -51,6 +55,7 @@
     <script src="assets/lib/angular-messages/angular-messages.min.js"></script>
     <script src="assets/lib/zxcvbn/dist/zxcvbn.js"></script>
     <script src="assets/lib/nickel.minStrength/dist/nickel.minStrength.min.js"></script>
-    <script>var app = angular.module("demo", ["ngMaterial","ngMessages","nickel.minStrength"])</script>
+    <script>window.app = angular.module("demo", ["ngMaterial","ngMessages","nickel.minStrength"])</script>
+    <script src="assets/DemoController.js"></script>
   </body>
 </html>
