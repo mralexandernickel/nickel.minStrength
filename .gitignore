@@ -3,3 +3,4 @@
 *.swa
 node_modules
 .DS_Store
+src/lib
