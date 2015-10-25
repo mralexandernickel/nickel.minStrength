@@ -1,0 +1,31 @@
+{
+  "name": "nickel.minStrength",
+  "authors": [
+    "Alexander Nickel <mr.alexander.nickel@gmail.com>"
+  ],
+  "description": "A Directive for Angular to validate the strength of passwords",
+  "main": "dist/nickel.minStrength.js",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "src/lib"
+  ],
+  "dependencies": {
+    "zxcvbn": "~4.0.1"
+  },
+  "homepage": "https://github.com/mralexandernickel/nickel.minStrength",
+  "_release": "040ddd0fa6",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "040ddd0fa6a19bb84aec6f1c5a82b3f942a41baf"
+  },
+  "_source": "git://github.com/mralexandernickel/nickel.minStrength.git",
+  "_target": "*",
+  "_originalSource": "nickel.minStrength",
+  "_direct": true
+}
