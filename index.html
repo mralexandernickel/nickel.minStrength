@@ -53,10 +53,16 @@
           </md-input-container>
           <div layout="row" layout-align="end center">
             <md-button class="md-primary"
+                       href="https://github.com/mralexandernickel/nickel.minStrength"
+                       aria-label="See on Github"
+                       target="_blank">See on Github</md-button>
+            <md-button class="md-primary"
                        ng-disabled="signupForm.password.$viewValue.length < 1"
                        aria-label="Show Info"
                        ng-click="showInfo(signupForm.password.$viewValue,$event)">Show Info</md-button>
             <md-button class="md-raised md-primary" ng-disabled="!signupForm.$valid" aria-label="Submit">Submit</md-button>
+          </div>
+          <div layout="row" layout-align="center center">
           </div>
         </form>
       </md-card>
