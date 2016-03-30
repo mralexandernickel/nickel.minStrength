@@ -2,6 +2,7 @@ var DemoController = function($scope, $mdDialog, $filter){
   $scope.closeDialog = function(){
     $mdDialog.hide()
   }
+  $scope.minimumScore = 4
   $scope.password = ""
   $scope.showInfo = function(val,e){
     console.log(val)

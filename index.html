@@ -35,13 +35,23 @@
     <div flex layout="row" layout-align="center center">
       <md-card flex="40" class="md-padding" ng-controller="DemoController">
         <h2 class="md-headline">Password Strength Validation</h2>
+        <p class="md-body-1">Hre you can set different strength levels</p>
+        <md-input-container>
+          <label>Miminum Strength Level</label>
+          <input
+            type="number"
+            min="1"
+            max="4"
+            ng-model="minimumScore">
+        </md-input-container>
+        <p class="md-body-1">Here you can test your passwords</p>
         <form name="signupForm">
           <md-input-container>
             <label>Password</label>
             <input name="password"
                    type="password"
                    ng-model="password"
-                   min-strength="4"
+                   min-strength="{{minimumScore}}"
                    ng-minlength="2"
                    autocomplete="off"
                    required>
@@ -73,7 +83,7 @@
     <script src="assets/lib/angular-material/angular-material.min.js"></script>
     <script src="assets/lib/angular-messages/angular-messages.min.js"></script>
     <script src="assets/lib/zxcvbn/dist/zxcvbn.js"></script>
-    <script src="assets/lib/nickel.minStrength/dist/nickel.minStrength.min.js"></script>
+    <script src="assets/lib/nickel.minStrength/dist/nickel.minStrength.js"></script>
     <script>window.app = angular.module("demo", ["ngMaterial","ngMessages","nickel.minStrength"])</script>
     <script src="assets/DemoController.js"></script>
   </body>

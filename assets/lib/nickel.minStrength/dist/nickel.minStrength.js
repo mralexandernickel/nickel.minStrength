@@ -9,18 +9,25 @@
       link: function(scope, elem, attrs, ctrl) {
         var getMinStrengthValue, minStrengthGetter;
         minStrengthGetter = $parse(attrs.minStrength);
+        scope.$watch(function(attrs){
+          console.info("WATCHED")
+          ctrl.$$parseAndValidate();
+        });
         scope.$watch(getMinStrengthValue, function() {
+          console.debug("PARSE AND VALIDATE")
           return ctrl.$$parseAndValidate();
         });
         ctrl.$validators.minStrength = function() {
           var minStrength, pwStrength;
-          minStrength = getMinStrengthValue();
+          minStrength = attrs.minStrength;
           if (ctrl.$viewValue != null) {
             pwStrength = zxcvbn(ctrl.$viewValue);
+            console.debug("Checking against minimumScore of", minStrength)
             return pwStrength.score >= minStrength;
           }
         };
-        return getMinStrengthValue = function() {
+        getMinStrengthValue = function() {
+          console.debug("GET MIN STRENGTH VALUE", attrs.minStrength);
           var minStrength;
           minStrength = minStrengthGetter(scope);
           if (angular.isObject(minStrength && minStrength.hasOwnProperty("$viewValue"))) {
