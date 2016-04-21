@@ -21,9 +21,9 @@
           var minStrength, pwStrength;
           minStrength = attrs.minStrength;
           if (ctrl.$viewValue != null) {
-            pwStrength = zxcvbn(ctrl.$viewValue);
+            scope.zxcvbn = zxcvbn(ctrl.$viewValue);
             console.debug("Checking against minimumScore of", minStrength)
-            return pwStrength.score >= minStrength;
+            return scope.zxcvbn.score >= minStrength;
           }
         };
         getMinStrengthValue = function() {

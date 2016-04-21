@@ -48,31 +48,39 @@
         <form name="signupForm">
           <md-input-container>
             <label>Password</label>
-            <input name="password"
-                   type="password"
-                   ng-model="password"
-                   min-strength="{{minimumScore}}"
-                   ng-minlength="2"
-                   autocomplete="off"
-                   required>
+            <input
+              name="password"
+              type="password"
+              ng-model="password"
+              min-strength="{{minimumScore}}"
+              ng-minlength="2"
+              autocomplete="off"
+              required>
             <div ng-messages="signupForm.password.$error">
               <div ng-message="required">Required</div>
               <div ng-message="minlength">Password is too short</div>
-              <div ng-message="minStrength">Password is too weak</div>
+              <div ng-message="minStrength">
+                <div ng-if="zxcvbn.feedback.warning.length">{{zxcvbn.feedback.warning}}.</div>
+                <div ng-repeat="suggestion in zxcvbn.feedback.suggestions">{{suggestion}}</div>
+                <div ng-if="!zxcvbn.feedback.warning.length && !zxcvbn.feedback.suggestions.length">You're very close to the perfect password, just add some random characters!</div>
+              </div>
             </div>
           </md-input-container>
           <div layout="row" layout-align="end center">
-            <md-button class="md-primary"
-                       href="https://github.com/mralexandernickel/nickel.minStrength"
-                       aria-label="See on Github"
-                       target="_blank">See on Github</md-button>
-            <md-button class="md-primary"
-                       ng-disabled="signupForm.password.$viewValue.length < 1"
-                       aria-label="Show Info"
-                       ng-click="showInfo(signupForm.password.$viewValue,$event)">Show Info</md-button>
+            <md-button
+              class="md-primary"
+              href="https://github.com/mralexandernickel/nickel.minStrength"
+              aria-label="See on Github"
+              target="_blank">See on Github</md-button>
+            <md-button
+              class="md-primary"
+              ng-disabled="signupForm.password.$viewValue.length < 1"
+              aria-label="Show Info"
+              ng-click="showInfo(signupForm.password.$viewValue,$event)">Show Info</md-button>
             <md-button class="md-raised md-primary" ng-disabled="!signupForm.$valid" aria-label="Submit">Submit</md-button>
           </div>
-          <div layout="row" layout-align="center center">
+          <div>
+            <!--<pre>{{zxcvbn|json}}</pre>-->
           </div>
         </form>
       </md-card>
